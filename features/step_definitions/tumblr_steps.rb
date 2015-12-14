@@ -1,19 +1,63 @@
-Given(/^I am on Amazon homepage$/) do
-	@browser.goto"http://amazon.co.uk"
+Given(/^I am logged in to the system$/) do
+  pending # Write code here that turns the phrase above into concrete actions
 end
 
-When(/^I enter "([^"]*)"$/) do |search_term|
-	@browser.text_field(id: "twotabsearchtextbox").when_present.set search_term	
+Given(/^I am on Tumblr editor box$/) do
+  pending # Write code here that turns the phrase above into concrete actions
 end
 
-When(/^I press "([^"]*)"$/) do |search_term|
-	@browser.send_keys "\n"
+When(/^I input "([^"]*)" and "([^"]*)"$/) do |arg1, arg2|
+  pending # Write code here that turns the phrase above into concrete actions
 end
 
-Then(/^the output should see some search results$/) do
-	expect(@browser.ul(id: "s-results-list-atf").when_present.lis.length).to be > 1
+When(/^I click on the "([^"]*)" button$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
 end
 
-Then(/^the first one should contain the word "([^"]*)"$/) do |search|
-expect(@browser.li(id: "result_0").text).to match search
+Then(/^my post should be viewable on my blog$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^the post should be viewable on the dashboard$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When(/^I dont input a "([^"]*)"$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When(/^I only enter a backslash into the "([^"]*)"$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When(/^I ckilk on the "([^"]*)" button$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^a message should be displayed saying "([^"]*)"$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When(/^"([^"]*)" and "([^"]*)" are empty$/) do |arg1, arg2|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When(/^regardlsess of tags being specified or not$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^the post button should not be clickable$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When(/^I input "([^"]*)" but no "([^"]*)"$/) do |arg1, arg2|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When(/^I click "([^"]*)" button$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^I get a warning message saying  "([^"]*)"$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
 end
