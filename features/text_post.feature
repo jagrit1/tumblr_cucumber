@@ -1,8 +1,7 @@
 Feature: Posting a Text Post to Tumblr
 	
 	Background: 
-		Given I am logged in to the system
-		And I am on Tumblr editor box
+		I choose text post on tumblr to make a post
 
 	Scenario: Successful post with title and body
 		When I input "title" and "body text" 
