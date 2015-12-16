@@ -1,63 +1,37 @@
-Given(/^I choose text post on tumblr to make a post$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+Given(/^I am on the dashboard$/) do
+ expect(@browser.url).to eq "https://www.tumblr.com/dashboard"
 end
 
-Given(/^I am on Tumblr editor box$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+Given(/^I have clicked text post$/) do
+ @browser.i(class:"icon_post_text").click 
 end
 
-When(/^I input "([^"]*)" and "([^"]*)"$/) do |arg1, arg2|
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^I enter the title "([^"]*)" into the title field$/) do |arg1|
+ @browser.div(class:"editor-plaintext").send_keys "Testing 123"
 end
 
-When(/^I click on the "([^"]*)" button$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^I enter the body "([^"]*)" into the body field$/) do |arg1|
+ @browser.div(class:"editor-richtext").click
+ @browser.div(class:"editor-richtext").send_keys "Testing tumblr"
 end
 
-Then(/^my post should be viewable on my blog$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^I select post$/) do
+ @browser.button(class:"create_post_button").click
 end
 
-Then(/^the post should be viewable on the dashboard$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^I go to my blog page$/) do
+ @browser.goto "http://jagritgyawali.tumblr.com"
+ @browser.alert.ok
 end
 
-When(/^I dont input a "([^"]*)"$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When(/^I only enter a backslash into the "([^"]*)"$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When(/^I ckilk on the "([^"]*)" button$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then(/^a message should be displayed saying "([^"]*)"$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When(/^"([^"]*)" and "([^"]*)" are empty$/) do |arg1, arg2|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When(/^regardlsess of tags being specified or not$/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then(/^the post button should not be clickable$/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When(/^I input "([^"]*)" but no "([^"]*)"$/) do |arg1, arg2|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When(/^I click "([^"]*)" button$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then(/^I get a warning message saying  "([^"]*)"$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^I should see my post on the blog with the correct title and body$/) do
+ verification = @browser.elements(class: "body-text")
+	verification.each do |a| 
+  if a.text.match /This is my text/
+		puts "#{a.text},\nThe post has been successfully made and listed in dashboard!"
+		break;
+	else
+		puts "The post could not be found"
+  end
+  end
 end

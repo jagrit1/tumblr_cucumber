@@ -1,4 +1,5 @@
 Given(/^I am on the tumblr login page$/) do
+	
 	@browser.goto "http://tumblr.com/login"
 end
 
@@ -19,7 +20,7 @@ Then(/^I should not be able to sucessfully log in to tumblr$/) do
 end
 
 Then(/^I should get an error message that my email or password was incorrect$/) do
-	expect(@browser.ul(id: "signup_form_errors").li.text).to match /Your email or password were incorrect/ or /Don't forget to fill out the Captcha/
+	expect(@browser.ul(id: "signup_form_errors").li.when_present.text).to match /Your email or password were incorrect.|Don't forget to fill out the Captcha!/
 end
 
 When(/^I input a valid username "([^"]*)" into username field$/) do |email|
