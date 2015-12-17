@@ -1,9 +1,8 @@
 user:
-	-name: Jose
-		-username: fakeusername
-		 email: something
-		 password: fjaklfa
-	-name: Jagrit
-		-username: Jagrit
-		 email: jaggywali@gmail.com
-		 password: spartaglobal
+  - username: courtney
+    email: fjkhalfja
+    password: fjkah
+
+  - username: jagrit
+    email: jaggywali@gmail.com
+    password: spartaglobal

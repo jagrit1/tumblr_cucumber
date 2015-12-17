@@ -1,14 +1,18 @@
 Given(/^I am on the tumblr login page$/) do
 	@a = @App.tumblr_login
 	@a.visit
+	@wrongemail = FILE["user"][0]["email"]
+	@wrongpassword = FILE["user"][0]["password"]
+	@email = FILE["user"][1]["email"]
+	@password = FILE["user"][1]["password"]
 end
 
-When(/^I input a invalid "([^"]*)" into username field$/) do |email|
-	@a.set_wrong_email(email)	
+When(/^I input a invalid email into email field$/) do 
+	@a.set_wrong_email(@wrongemail)	
 end
 
-When(/^I input a invalid "([^"]*)" into password field$/) do |password|
-	@a.set_wrong_password(password)
+When(/^I input a invalid password into password field$/) do
+	@a.set_wrong_password(@wrongpassword)
 end
 
 When(/^I choose to login with invalid credentials$/) do
@@ -23,12 +27,12 @@ Then(/^I should get an error message that my email or password was incorrect$/) 
 	expect(@a.ul_element).to match /Your email or password were incorrect.|Don't forget to fill out the Captcha!/
 end
 
-When(/^I input a valid username "([^"]*)" into username field$/) do |email|
-	@a.set_email(email)	
+When(/^I input a valid email into email field$/) do
+	@a.set_email(@email)	
 end
 
-When(/^I input a valid password "([^"]*)" into password field$/) do |password|
-	@a.set_password(password)	
+When(/^I input a valid password into password field$/) do
+	@a.set_password(@password)	
 end
 
 When(/^I choose to login$/) do
