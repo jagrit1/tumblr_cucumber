@@ -2,13 +2,14 @@ browser = Watir::Browser.new :firefox
 
 Before do 
 	@browser = browser
+	@App = App.new @browser
 end
 
 After do
 end
 
 at_exit do
-	@browser.close
+	browser.close
 end
 
 =begin
