@@ -1,5 +1,4 @@
 class TumblrLoginPage < GenericPages
-
 	def visit
 		@browser.goto "http://tumblr.com/login"
 	end
