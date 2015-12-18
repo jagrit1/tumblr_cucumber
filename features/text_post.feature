@@ -1,4 +1,8 @@
 Feature: Posting a text post on tumblr
+  
+  Background: 
+    Given I am logged in to tumblr
+  
   @tumblr_post
   Scenario: Post a text post with Title and Body
   Given I am on the dashboard

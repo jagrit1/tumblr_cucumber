@@ -1,3 +1,10 @@
+Given(/^I am logged in to tumblr$/) do
+	@a = @App.tumblr_login
+	@a.visit
+	@email = FILE["user"][1]["email"]
+	@password = FILE["user"][1]["password"]
+end
+
 Given(/^I am on the dashboard$/) do
   @b = @App.tumblr_dashboard
   expect(@b.url).to eq "https://www.tumblr.com/dashboard"
